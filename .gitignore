@@ -1,0 +1,12 @@
+target/
+data/
+.env
+.idea/
+*.iml
+.env.*
+!.env.example
+*.log
+*.mv.db
+*.trace.db
+backups/
+secrets/

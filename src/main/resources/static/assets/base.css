@@ -1,0 +1,15 @@
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scrollbar-gutter:stable;scrollbar-color:var(--color-rule-2) var(--color-paper);scroll-padding-top:var(--space-lg)}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:var(--text-md);line-height:1.55;-webkit-font-smoothing:antialiased}
+::selection{background:var(--color-selection);color:var(--color-ink)}
+:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:var(--display-weight);font-synthesis:none;letter-spacing:var(--tracking-display);line-height:1.2;overflow-wrap:break-word;min-width:0;text-wrap:balance}
+h1{font-size:var(--text-display);max-width:26ch}h2{font-size:var(--text-section)}h3{font-size:var(--text-title)}
+p{margin:0;text-wrap:pretty}p:not([class]){max-width:65ch}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+svg{display:block;flex-shrink:0}[hidden]{display:none!important}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:clip;clip-path:inset(50%);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

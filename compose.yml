@@ -1,0 +1,37 @@
+services:
+  patrimonio:
+    build: .
+    image: ieee-iff-patrimonio:local
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8081"
+    environment:
+      HUB_URL: ${HUB_URL:-http://localhost:8080}
+      SEED_DEMO: ${SEED_DEMO:-true}
+      LLDAP_LDAP_URL: ${LLDAP_LDAP_URL:-ldap://host.docker.internal:3890}
+      LLDAP_BASE_DN: ${LLDAP_BASE_DN:-dc=ieeeiffcampos,dc=com,dc=br}
+      LLDAP_BIND_DN: ${LLDAP_BIND_DN:-}
+      LLDAP_BIND_PASSWORD: ${LLDAP_BIND_PASSWORD:-}
+      LLDAP_DIRECTOR_GROUP: ${LLDAP_DIRECTOR_GROUP:-ieee_diretoria}
+      LLDAP_ADMIN_GROUP: ${LLDAP_ADMIN_GROUP:-lldap_admin}
+      LLDAP_WEB_URL: ${LLDAP_WEB_URL:-https://sso.ieeeiffcampos.com.br}
+      LLDAP_API_URL: ${LLDAP_API_URL:-}
+      LLDAP_API_USERNAME: ${LLDAP_API_USERNAME:-}
+      LLDAP_API_PASSWORD: ${LLDAP_API_PASSWORD:-}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-false}
+      PATRIMONIO_DB_PASSWORD: ${PATRIMONIO_DB_PASSWORD:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - patrimonio-data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    mem_limit: 640m
+    cpus: 1.0
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  patrimonio-data:

@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Entrar · Patrimônio IEEE IFF</title>
+<link rel="icon" href="/assets/brand/ramo.webp"><script src="/assets/theme-init.js"></script><link rel="stylesheet" href="/assets/tokens.css"><link rel="stylesheet" href="/assets/base.css"><link rel="stylesheet" href="/assets/patrimonio.css">
+</head><body><main class="login-layout"><section class="login-panel" aria-labelledby="login-title">
+<a class="brand" th:href="${hubUrl}"><img src="/assets/brand/ramo.webp" width="52" height="52" alt=""><span><strong>IEEE IFF</strong><small>Campos Centro</small></span></a>
+<h1 id="login-title">Patrimônio</h1><p>Acesse com sua conta do Ramo.</p>
+<p th:if="${param.error}" class="form-error" role="alert">Não foi possível entrar. Confira suas credenciais e a disponibilidade do diretório.</p>
+<p th:if="${param.logout}" class="form-hint" role="status">Sessão encerrada.</p>
+<form th:action="@{/login}" method="post" class="login-form"><label>Usuário<input name="username" autocomplete="username" required maxlength="64" autofocus></label><label>Senha<input name="password" type="password" autocomplete="current-password" required maxlength="1024"></label><button class="button primary" type="submit">Entrar</button></form>
+<div class="login-links"><a th:href="${directoryWebUrl}">Gerenciar minha conta</a><a th:href="${hubUrl}">Voltar ao Hub</a></div>
+</section></main></body></html>

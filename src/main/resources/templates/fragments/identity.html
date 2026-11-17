@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"><body>
+<div th:fragment="bar" class="container header-top">
+  <a class="brand" th:href="${hubUrl}" aria-label="Voltar ao Hub IEEE IFF"><img src="/assets/brand/ramo.webp" width="52" height="52" alt=""><span><strong>IEEE IFF</strong><small>Campos Centro</small></span></a>
+  <div class="header-actions">
+    <label class="theme-control"><span class="visually-hidden">Tema da interface</span><select id="theme"><option value="system">Tema: sistema</option><option value="light">Tema: claro</option><option value="dark">Tema: escuro</option></select></label>
+    <span class="account-label"><strong th:text="${username}"></strong><small th:text="${roleLabel}"></small></span>
+    <a th:if="${canAdmin}" class="text-button admin-link" href="/admin/usuarios">Usuários e papéis</a>
+    <form th:action="@{/logout}" method="post"><button class="button quiet" type="submit">Sair</button></form>
+    <a class="button quiet hub-link" th:href="${hubUrl}">Hub<svg class="icon"><use href="/assets/icons.svg#external"/></svg></a>
+  </div>
+</div>
+</body></html>
